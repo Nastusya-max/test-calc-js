@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 60rem;
+  padding: 0 3.75rem;
+  margin: auto;
+}
+
+.form {
+  max-width: 30rem;
+}
+
+.table {
+  max-width: 30rem;
+  height: auto;
+}
+
+.content-container {
+  margin: 5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  display: block;
+  margin: 1rem auto;
+  width: 12rem;
+}
