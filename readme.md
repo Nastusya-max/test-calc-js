@@ -1,4 +1,4 @@
-https://nastusya-max.github.io/test-calc-js/dist/index.html
+https://nastusya-max.github.io/test-calc-js/src/index.html
 
 ## Создайте калькулятор расчета каркаса с покрытием листов:
 
