@@ -1,5 +1,7 @@
-("use strict");
-const formList = document.querySelector(".select__list");
+// ("use strict");
+import "../styles/main.scss";
+
+const formList = document.querySelector(".form__list");
 const form = document.querySelector(".form");
 const table = document.querySelector(".table-container");
 const resetButton = document.querySelector(".reset-button");
@@ -58,9 +60,9 @@ const inputDataForm = (formArr) => {
             .map((formItem) => {
               if (inputItem === formItem.type && formItem.min) {
                 return `
-                <li class="select__item list-group-item">
-                  <label class="form-label" for="input-${formItem.key}">Выберите ${formItem.name}: </label>
-                  <input class="form-control" name="${formItem.key}" id="input-${formItem.key}" type="number" min="${formItem.min}" max="${formItem.max}" value="${formItem.min}" step="${formItem.step}" required>
+                <li class="form__item list-group-item">
+                  <label class="item__label form-label" for="input-${formItem.key}">${formItem.name}: </label>
+                  <input class="item__input form-control" name="${formItem.key}" id="input-${formItem.key}" type="number" min="${formItem.min}" max="${formItem.max}" value="${formItem.min}" step="${formItem.step}" required>
                 </li>`;
               }
             })
@@ -73,10 +75,10 @@ const inputDataForm = (formArr) => {
     .map((selectItem) => {
       if (selectItem) {
         return `
-          <li class="select__item list-group-item">
-            <label class="form-label" for="select-${selectItem}">Выберите ${selectItem}:</label>
-              <select class="form-select" name="${selectItem}" id="select-${selectItem}" required>
-                <option value="">--Пожалуйста, выберите опцию--</option>
+          <li class="form__item list-group-item">
+            <label class="item__label form-label" for="select-${selectItem}">${selectItem}:</label>
+              <select class="item__select form-select" name="${selectItem}" id="select-${selectItem}" required>
+                <option class="item__option" value="">--Пожалуйста, выберите опцию--</option>
                 ${formArr
                   .map((formItem) => {
                     if (selectItem === formItem.type) {
@@ -100,18 +102,19 @@ const inputDataForm = (formArr) => {
 
 const createTable = (cartArr) => {
   document.querySelector(".tbody").innerHTML += `
+  <th class="new-item" scope="row">Новый товар</th>
     ${cartArr
       .map((cartItem) => {
         return `
-      <tr class="coll">
-      <th scope="row">${cartItem.name}</th>
-      <td>${cartItem.unit}</td>
+      <tr class="table__row">
+      <th class="table__col" scope="row">${cartItem.name}</th>
+      <td class="table__col">${cartItem.unit}</td>
       ${
         cartItem.amount
-          ? `<td>${cartItem.amount}</td>
-            <td class="price">${cartItem.price}</td>`
-          : `<td>${cartItem.square}</td>
-            <td>${cartItem.price}</td>`
+          ? `<td class="table__col">${cartItem.amount}</td>
+            <td class="table__col price">${cartItem.price}</td>`
+          : `<td class="table__col">${cartItem.square}</td>
+            <td class="table__col">${cartItem.price}</td>`
       }
       </tr>
       `;
@@ -125,7 +128,7 @@ const createTable = (cartArr) => {
       return sum + +current.innerText;
     }, 0);
 
-  document.querySelector(".sum").innerHTML = `
+  document.querySelector(".table__prie").innerHTML = `
   <p>Итоговая сумма: ${resultPrice}</p>
   `;
 };
@@ -230,7 +233,7 @@ const calculateMaterial = () => {
 };
 
 window.onload = () => {
-  getData("../data/data.json")
+  getData("../../data/data.json")
     .then((data) => {
       dataJSON = data;
       new Promise((resolve) => {
@@ -241,7 +244,7 @@ window.onload = () => {
     })
     .catch(({ message }) => console.log("Error:", message));
 
-  getData("../data/config.json")
+  getData("../../data/config.json")
     .then((data) => {
       configJSON = data;
       new Promise((resolve) => {

@@ -1,0 +1,25 @@
+{
+  "name": "test-calc",
+  "version": "1.0.0",
+  "description": "Требуется разделить страницу на две части (вертикально или горизонтально, как удобно). \r В одной части ввод данных, во второй - результат/корзина<sup><a href=\"#added\">d2</a></sup>.<br>\r Внешний вид достаточный для проверки задания.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --mode production",
+    "start": "npx webpack --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "sass": "^1.62.0",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  }
+}
