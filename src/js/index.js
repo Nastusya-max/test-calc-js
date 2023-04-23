@@ -273,7 +273,7 @@ window.onload = () => {
 
   resetButton.addEventListener("click", () => {
     document.querySelector(".tbody").innerHTML = "";
-    document.querySelector(".sum").innerHTML = "";
+    document.querySelector(".table__prie").innerHTML = "";
 
     table.style.display = "none";
   });
